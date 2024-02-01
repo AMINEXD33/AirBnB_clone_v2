@@ -9,21 +9,21 @@ env.hosts = ["54.242.176.4", "54.162.88.196"]
 env.key = "~/.ssh/school"
 
 
-def do_deploy(arch):
+def do_deploy(archive_path):
     """do_deploy
     this function deployes the archive passed to all
     server hosts
     """
     # check if archive exists
-    if not os.path.exists(arch):
+    if not os.path.exists(archive_path):
         return False
 
     try:
-        ar = arch.split("/")
-        bs = arch[1].strip('.tgz')
+        ar = archive_path.split("/")
+        bs = archive_path[1].strip('.tgz')
 
         # upload to host
-        put(arch, '/tmp/')
+        put(archive_path, '/tmp/')
         # make a new dir in the hosts
         sudo(f'mkdir -p /data/web_static/releases/{bs}')
 
