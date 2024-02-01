@@ -1,12 +1,12 @@
-#!/usr/bin.python3
+#!/usr/bin/python3
 """distribute the package to all servers"""
 from fabric.api import *
 import os.path
 
 
-env.username = 'ubuntu'
+env.user = 'ubuntu'
 env.hosts = ["54.242.176.4", "54.162.88.196"]
-env.key = "~/.ssh/school"
+env.key_filename = "~/.ssh/school"
 
 
 def do_deploy(archive_path):
