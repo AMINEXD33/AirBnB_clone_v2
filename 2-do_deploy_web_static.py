@@ -28,10 +28,10 @@ def do_deploy(arch):
         sudo(f'mkdir -p /data/web_static/releases/{bs}')
 
         path = f"/data/web_static/releases/{bs}"
-        sudo('rm /tmp/{}'.format(arc[1]))
+        sudo('rm /tmp/{}'.format(ar[1]))
         sudo('mv {}/web_static/* {}/'.format(path, path))
         sudo('rm -rf /data/web_static/current')
         sudo('ln -s {}/ "/data/web_static/current"'.format(path))
         return True
-    except (exception):
+    except:
         return False
