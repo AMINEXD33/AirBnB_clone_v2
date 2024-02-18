@@ -16,7 +16,7 @@ classes = {"Amenity": Amenity, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
 
 
-@app.route('/cities_by_states', strict_slashes=False)
+@app.route('/states_list', strict_slashes=False)
 def cities_by_states():
     """ display HTML page with list of cities """
     states = storage.all(classes["State"]).values()
